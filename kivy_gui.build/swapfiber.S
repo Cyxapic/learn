@@ -1,0 +1,1 @@
+/home/san/prog/geekbrains/univercity/my_projects/kivyProj/lib/python3.6/site-packages/nuitka/build/static_src/x64_ucontext_src/swapfiber.S
