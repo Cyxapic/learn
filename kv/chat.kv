@@ -1,0 +1,68 @@
+<ScrollView>:
+    canvas.before:
+        Color:
+            rgba: 0.23, 0.12, 0.19, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<ChatLabel@Label>:
+    text_size: (self.width, None)
+    halign: 'left'
+    valign: 'top'
+    size_hint: (1, None)
+    height: self.texture_size[1]
+    markup: True
+
+
+<MainWindow>:
+    sender_layout: sender_layout
+    chat_layout: chat_layout
+
+    canvas.before:
+        Color:
+            rgba: 0.21, 0.1, 0.2, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        id: tech_layout
+        pos: 25, 5
+        size: 350, 30
+        Button:
+            id: exit_btn
+            size_hint: 1, 1
+            pos: (200, 1)
+            text: 'Выход'
+            on_press: exit()
+
+    BoxLayout:
+        id: chat_layout
+        pos: 25, 380
+        size: 300, 400
+        Label:
+            text: "[b][color=ff3333]Чат:[/color][/b]"
+            markup: True
+
+    BoxLayout:
+        id: sender_layout
+        pos: 25, 50
+        size: 350, 50
+        orientation: 'horizontal'
+        TextInput:
+            id: text_msg
+            size: (250, 40)
+        Button:
+            id: send_btn
+            size_hint: 0.3, 1
+            text: 'Отправить'
+            on_press: root.sender(text_msg.text)
+
+    ScrollView:
+        id: chat_layout
+        pos: 25, 110
+        size: 350, 450
+        ChatLabel:
+            id: chat_message
+            text: ""
