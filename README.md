@@ -5,11 +5,14 @@
 * Study programs.
 
 ### Content ###
-* Kivy gui try:
+* kivy_fb:
     * kivy_gui.py
     * kv/chat.kv
-* Echo server
-    * thred_step_serv.py
+* simpl_paint > on Kivy:
+    * kivy_gui.py
+    * kv/chat.kv
+
+* Echo server > thred_step_serv.py
 
 ### TO DO ###
 * LEARN!
