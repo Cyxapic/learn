@@ -37,7 +37,16 @@ class ToolsLayout(BoxLayout):
 class PainLayout(BoxLayout):
     y_old = 0
 
+    def get_window_size(self):
+        root_width = self.get_root_window().width
+        root_height = self.get_root_window().height
+        return root_width, root_height
+
     def on_touch_down(self, touch):
+        # хотел в инти запихать паддало, поэтому тут пока оставил.
+        window_size = self.get_window_size()
+        if touch.x < (window_size[0] - self.size[0]):
+            return
         with self.canvas:
             Color(*self.color, mode='hsv')
             if self.shape == 'clear':
@@ -51,7 +60,10 @@ class PainLayout(BoxLayout):
                 touch.ud['data'] = Line(points=(touch.x, touch.y))
 
     def on_touch_move(self, touch):
+        window_size = self.get_window_size()
         data = touch.ud.get('data', None)
+        if touch.x < (window_size[0] - self.size[0]):
+            return
         if data:
             if self.shape == 'circle':
                 try:

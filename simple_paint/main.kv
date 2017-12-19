@@ -2,19 +2,13 @@
     GridLayout:
         rows: 2
         cols: 1
-
         BoxLayout:
-            size_hint_x: None
-            width: int(root.width*0.3)
             Button:
                 id: color_pick
                 text: "Выбрать цвет"
                 on_press: root.choose_color()
 
         BoxLayout:
-            id: second_lay
-            size_hint_x: None
-            width: int(root.width*0.3)
             GridLayout:
                 rows: 3
                 cols: 1
@@ -27,14 +21,12 @@
                     text: "Line"
                     on_press: root.pick_line()
                 Button:
-                    id: id_else
+                    id: id_clear
                     text: "Clear"
                     on_press: root.pick_clear()
 
 
 <PainLayout>:
-    size_hint_x: None
-    width: int(root.width*0.7)
     canvas.before:
         Color:
             rgba: 0.21, 0.1, 0.2, 1
@@ -49,8 +41,12 @@
         size: root.width, root.height
         ToolsLayout:
             id: tools
+            size_hint_x: None
+            width: int(root.width*0.3)
         PainLayout:
             id: paint
+            size_hint_x: None
+            width: int(root.width*0.7)
             shape: root.id_tools.shape
             color: root.id_tools.color_picked
 
