@@ -11,6 +11,8 @@
 * simpl_paint > on Kivy:
     * kivy_gui.py
     * kv/chat.kv
+* simple_server > STL python 3.6+
+    * simple_http_server.py
 
 * Echo server > thred_step_serv.py
 
